@@ -310,10 +310,12 @@ void StartDefaultTask(void const * argument)
 {
 
   /* USER CODE BEGIN 5 */
+	uint8_t rx[100];
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  HAL_UART_Receive(&huart2,rx,25,100);
+    osDelay(10);
   }
   /* USER CODE END 5 */ 
 }
@@ -331,6 +333,7 @@ void StartTask02(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  HAL_UART_Transmit(&huart2,"**kranthi**",13,100);
     osDelay(1);
   }
   /* USER CODE END StartTask02 */
